@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
+
+    <title>Housing - Find Your Next Home</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+<!--
+Ramayana CSS Template
+https://templatemo.com/tm-529-ramayana
+-->
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/templatemo-style.css">
+    <link rel="stylesheet" href="assets/css/owl.css">
+
+  </head>
+
+<body class="is-preload">
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+      <!-- Main -->
+        <div id="main">
+          <div class="inner">
+
+            <!-- Header -->
+            <header id="header">
+              <div class="logo">
+                <a href="index.html">HOUSING</a>
+              </div>
+            </header>
+
+            <!-- Page Heading -->
+            <div class="page-heading">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-12">
+                    <h1 style="text-align: center;">Update Listing</h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <!-- Forms -->
+            <section class="forms" id="form-container">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-12">
+                    <form id="contact" action="#" onsubmit="return update();">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <fieldset>
+                            <label style="padding-left: 10px;">address</label>
+                            <input name="address" type="text" class="form-control" id="address" placeholder="address" required>
+                          </fieldset>
+                        </div>
+                        <div class="col-md-12">
+                          <fieldset>
+                            <label style="padding-left: 10px;">zip</label>
+                            <input name="zip" type="text" class="form-control" id="zip" placeholder="zip" required>
+                          </fieldset>
+                        </div>
+                        <div class="col-md-12" id="rent-set">
+                          <fieldset>
+                            <label style="padding-left: 10px;">rent</label>
+                            <input name="rent" type="number" class="form-control" id="rent" placeholder="rent" required>
+                          </fieldset>
+                        </div>
+                        <div class="col-md-12" id="price-set">
+                          <fieldset>
+                            <label style="padding-left: 10px;">price</label>
+                            <input name="price" type="number" class="form-control" id="price" placeholder="price" required>
+                          </fieldset>
+                        </div>
+                        <div class="col-md-12">
+                          <fieldset>
+                            <label style="padding-left: 10px;">sqft</label>
+                            <input name="sqft" type="number" class="form-control" id="sqft" placeholder="sqft" required>
+                          </fieldset>
+                        </div>
+
+                        <div class="col-md-12">
+                          <fieldset>
+                            <label style="padding-left: 10px;">bedroom #</label>
+                            <input name="bedroom" type="number" class="form-control" id="bedroom" placeholder="bedroom #" required>
+                          </fieldset>
+                        </div>
+
+                        <div class="col-md-12">
+                          <fieldset>
+                            <label style="padding-left: 10px;">bathroom #</label>
+                            <input name="bathroom" type="number" class="form-control" id="bathroom" placeholder="bathroom #" required>
+                          </fieldset>
+                        </div>
+
+                        <div class="col-md-12">
+                          <fieldset>
+                            <label style="padding-left: 10px;">built in</label>
+                            <input name="year" type="number" class="form-control" id="year" placeholder="built in" required>
+                          </fieldset>
+                        </div>
+
+                        <div class="col-md-12" id="deposit-set">
+                          <fieldset>
+                            <label style="padding-left: 10px;">deposit</label>
+                            <input name="deposit" type="number" class="form-control" id="deposit" placeholder="deposit" required>
+                          </fieldset>
+                        </div>
+
+                        <div class="col-md-12" id="leaseTerm-set">
+                          <label style="padding-left: 10px;">lease term</label>
+                          <select name="leaseTerm" id="leaseTerm">
+                            <option value="" selected>Select Lease Term</option>
+                            <option value="6 months">6 months</option>
+                            <option value="1 year">1 year</option>
+                          </select>
+                        </div>
+
+
+                        <div class="col-md-12">
+                          <label style="padding-left: 10px;">house type</label>
+                          <select name="homeType" id="homeType">
+                            <option value="" selected>Select Type</option>
+                            <option value="apartment">apartment</option>
+                            <option value="townhome">townhome</option>
+                            <option value="attached single family home">attached single family home</option>
+                            <option value="detached single family home">detached single family home</option>
+                          </select>
+                        </div>
+
+                        <div class="col-md-12">
+                          <label style="padding-left: 10px;">flooring</label>
+                          <select name="flooring" id="flooring">
+                            <option value="" selected>Select Flooring</option>
+                            <option value="wood">wood</option>
+                            <option value="carpet">carpet</option>
+                          </select>
+                        </div>
+
+                        <div class="col-md-12">
+                          <label style="padding-left: 10px;">parking</label>
+                          <select name="parking" id="parking">
+                            <option value="" selected>Select Parking</option>
+                            <option value="open">open</option>
+                            <option value="closed">closed</option>
+                          </select>
+                        </div>
+
+                        <div class="col-md-12" id="available-set">
+                          <fieldset id="available-set">
+                            <label style="padding-left: 10px;">Available on</label>
+                            <input name="available" type="date" class="form-control" id="available" required>
+                          </fieldset>
+                        </div>
+
+                        <div class="col-md-12">
+                          <fieldset>
+                            <label>Open House</label>
+                            <input name="openhouse" type="date" class="form-control" id="openhouse" value="">
+                          </fieldset>
+                        </div>
+                        
+                        <div class="col-md-12" style="text-align: center;">
+                          <button type="submit" id="form-submit" class="button">update</button>
+                          <button type="button" id="form-submit" class="button" onclick="dodelete();">delete</button>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+    
+              
+
+
+            
+
+          </div>
+        </div>
+
+      <!-- Sidebar -->
+        <div id="sidebar">
+
+          <div class="inner">
+
+              
+             <!-- Menu -->
+            <nav id="menu">
+              <ul>
+                <li><a href="search.html">Search</a></li>
+                <li><a href="myapplications.html">my applications</a></li>
+                <li id="message"><a href="mymessages.html">message</a></li>
+                <li>
+                  <span class="opener">listing</span>
+                  <ul>
+                    <li><a href="mylisting.html">my listings</a></li>
+                    <li><a href="myfavorite.html">favorite</a></li>
+                    <li><a href="createlisting.html?type=rental">post rental listing</a></li>
+                    <li><a href="createlisting.html?type=selling">post selling listing</a></li>
+                  </ul>
+                </li>
+                <li id="admin-list">
+                  <span class="opener">admin</span>
+                  <ul>
+                    <li><a href="manageruser.html">manager user</a></li>
+                    <li><a href="pendingaccount.html">pending account</a></li>
+                  </ul>
+                </li>
+                <li id="register-link"><a href="register.html">register</a></li>
+                <li id="login-link"><a href="#">Login/out</a></li>
+              </ul>
+            </nav>
+
+           
+
+     
+          </div>
+        </div>
+
+    </div>
+
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/transition.js"></script>
+    <script src="assets/js/owl-carousel.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</body>
+
+
+  </body>
+
+</html>
+
+<script type="text/javascript">
+  window.onload = function() {
+    var name = sessionStorage.getItem("name");
+    var role = sessionStorage.getItem("role");
+    if (name==null) {
+      document.getElementById("login-link").innerHTML = "<a href='login.html'>Login</a></li>"  
+    }
+    else{
+      document.getElementById("login-link").innerHTML = "<a href='#' onclick='logout();'>Logout</a></li>";
+      document.getElementById("register-link").style.display = "none";
+
+      var url = "/message/" + name;
+      $.ajax({
+        type: "GET",
+        url: url,
+        success: function(result) {
+          console.log(result);
+          var count = 0;
+          for (var i = 0; i < result.length; i++) {
+            if (result[i]["status"]=="new") 
+              count += 1;
+          }
+          if (count > 0)
+            document.getElementById("message").innerHTML = "<a href='mymessages.html'>message(" + count + ")</a>";
+        }
+      }); 
+    }
+    if (role==null) {
+      document.getElementById("admin-list").style.display = "none";
+    }
+    else if (role!="admin") {
+      document.getElementById("admin-list").style.display = "none";
+    }
+
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    var id = urlParams.get("id");
+
+    if (id==null) {
+      document.getElementById('form-container').innerHTML = "<p style='text-align:center;'><strong>Oops! Something went wrong!</strong></p>";
+    }
+
+    else {
+
+      var url = "/listing/" + id;
+
+      $.ajax({
+        type: "GET",
+        url: url,
+        success: function(result) {
+          console.log(result);
+
+          var type = result["listingType"];
+
+          sessionStorage.setItem("update-id", id);
+          sessionStorage.setItem("update-type", type);
+          if (type == "selling") {
+            document.getElementById('rent-set').style.display = "none";
+            document.getElementById('deposit-set').style.display = "none";
+            document.getElementById('leaseTerm-set').style.display = "none";
+            document.getElementById('available-set').style.display = "none";
+            document.getElementById("price").value = result["price"];
+            document.getElementById('rent').required = false;
+            document.getElementById('deposit').required = false;
+            document.getElementById('leaseTerm').required = false;
+            document.getElementById('available').required = false;
+          }
+          else if (type == "rental"){
+            document.getElementById('price-set').style.display = "none";
+            document.getElementById('price').required = false;
+            document.getElementById("rent").value = result["price"];
+            document.getElementById("deposit").value = result["deposit"];
+            document.getElementById("leaseTerm").value = result["leaseTerm"];
+            document.getElementById("available").value = result["availableDate"];
+          }
+
+          document.getElementById("address").value = result["address"];
+          document.getElementById("zip").value = result["zip"];
+          document.getElementById("sqft").value = result["sqft"];
+          document.getElementById("bedroom").value = result["numberOfBedroom"];
+          document.getElementById("bathroom").value = result["numberOfBathroom"];
+          document.getElementById("year").value = result["year"];
+          document.getElementById("homeType").value = result["type"];
+          document.getElementById("flooring").value = result["flooring"];
+          document.getElementById("parking").value = result["parking"];
+
+          if (result["openHouse"] != null)
+            document.getElementById("openhouse").value = result["openHouse"];
+
+        },
+        error : function(e) {
+          document.getElementById('form-container').innerHTML = "<p style='text-align:center;'><strong>Oops! Something went wrong!</strong></p>";
+        }
+
+      });
+    }
+  }
+
+  function update(){
+    var id = sessionStorage.getItem("update-id");
+    var listingType = sessionStorage.getItem("update-type");
+    var name = sessionStorage.getItem("name");
+
+    var url = "/listing";
+
+    var data = {
+      "publisher": name,
+      "uuid": id,
+      "listingType": listingType
+    }
+
+    var address = document.getElementById("address").value;
+    if (address!="") 
+      data["address"] = address;
+
+    var zip = document.getElementById("zip").value;
+    if (zip!="") 
+      data["zip"] = zip;
+
+    var rent = document.getElementById("rent").value;
+    if (rent!="") 
+      data["price"] = rent;
+
+    var price = document.getElementById("price").value;
+    if (price!="") 
+      data["price"] = price;
+
+    var sqft = document.getElementById("sqft").value;
+    if (sqft!="") 
+      data["sqft"] = sqft;
+
+    var bedroom = document.getElementById("bedroom").value;
+    if (bedroom!="") 
+      data["numberOfBedroom"] = bedroom;
+
+    var bathroom = document.getElementById("bathroom").value;
+    if (bathroom!="") 
+      data["numberOfBathroom"] = bathroom;
+
+    var year = document.getElementById("year").value;
+    if (year!="") 
+      data["year"] = year;
+
+    var deposit = document.getElementById("deposit").value;
+    if (deposit!="") 
+      data["deposit"] = deposit;
+
+    var leaseTerm = document.getElementById("leaseTerm").value;
+    if (leaseTerm!="") 
+      data["leaseTerm"] = leaseTerm;
+
+    var homeType = document.getElementById("homeType").value;
+    if (homeType!="") 
+      data["type"] = homeType;
+
+    var flooring = document.getElementById("flooring").value;
+    if (flooring!="") 
+      data["flooring"] = flooring;
+
+    var parking = document.getElementById("parking").value;
+    if (parking!="") 
+      data["parking"] = parking;
+
+    var available = document.getElementById("available").value;
+    if (available!="") 
+      data["availableDate"] = available;
+
+    var openhouse = document.getElementById("openhouse").value;
+    if (openhouse!="") 
+      data["openHouse"] = openhouse;
+
+    $.ajax({
+      type: "PUT",
+      url: url,
+      contentType : "application/json",
+      data: JSON.stringify(data),
+      success: function(result) {
+        console.log(result);
+        window.location.replace("mylisting.html");
+      },
+      error : function(e) {
+        document.getElementById('form-container').innerHTML = "<p style='text-align:center;'><strong>Oops! Something went wrong!</strong></p>";
+      }
+    });
+    return false;
+  }
+
+  function dodelete() {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    var id = urlParams.get("id");
+
+    if (id==null) {
+      document.getElementById('form-container').innerHTML = "<p style='text-align:center;'><strong>Oops! Something went wrong!</strong></p>";
+    }
+
+    else{
+      var url = "/listing/" + id;
+
+      $.ajax({
+        type: "DELETE",
+        url: url,
+        success: function(result) {
+          console.log(result);
+          window.location.replace("mylisting.html");
+        },
+        error : function(e) {
+          document.getElementById('form-container').innerHTML = "<p style='text-align:center;'><strong>Oops! Something went wrong!</strong></p>";
+        }
+      });
+    }
+  }
+
+  function logout() {
+    sessionStorage.removeItem("name");
+    sessionStorage.removeItem("role");
+    location.reload();
+    return false;
+  }
+</script>

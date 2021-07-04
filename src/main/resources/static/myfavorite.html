@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700" rel="stylesheet">
+
+    <title>Housing - Find Your Next Home</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+<!--
+Ramayana CSS Template
+https://templatemo.com/tm-529-ramayana
+-->
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/templatemo-style.css">
+    <link rel="stylesheet" href="assets/css/owl.css">
+
+  </head>
+
+<body class="is-preload">
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+      <!-- Main -->
+        <div id="main">
+          <div class="inner">
+
+            <!-- Header -->
+            <header id="header">
+              <div class="logo">
+                <a href="index.html">HOUSING</a>
+              </div>
+            </header>
+
+            <!-- Page Heading -->
+            <div class="page-heading">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-12">
+                    <h1 style="text-align: center;">My Favorite Listing</h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+             <!-- Tables -->
+            <section class="tables" id="table">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-12">
+                    <div class="default-table">
+                      <table>
+                        <thead>
+                          <tr>
+                            <th>Type</th>
+                            <th>Address</th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        <tbody id="result">
+                          
+                          
+                        </tbody>
+                      </table>
+              
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
+            </section>
+
+
+          </div>
+        </div>
+
+      <!-- Sidebar -->
+        <div id="sidebar">
+
+          <div class="inner">
+
+              
+            <!-- Menu -->
+            <nav id="menu">
+              <ul>
+                <li><a href="search.html">Search</a></li>
+                <li><a href="myapplications.html">my applications</a></li>
+                <li id="message"><a href="mymessages.html">message</a></li>
+                <li>
+                  <span class="opener">listing</span>
+                  <ul>
+                    <li><a href="mylisting.html">my listings</a></li>
+                    <li><a href="myfavorite.html">favorite</a></li>
+                    <li><a href="createlisting.html?type=rental">post rental listing</a></li>
+                    <li><a href="createlisting.html?type=selling">post selling listing</a></li>
+                  </ul>
+                </li>
+                <li id="admin-list">
+                  <span class="opener">admin</span>
+                  <ul>
+                    <li><a href="manageruser.html">manager user</a></li>
+                    <li><a href="pendingaccount.html">pending account</a></li>
+                  </ul>
+                </li>
+                <li id="register-link"><a href="register.html">register</a></li>
+                <li id="login-link"><a href="#">Login/out</a></li>
+              </ul>
+            </nav>
+
+           
+
+     
+          </div>
+        </div>
+
+    </div>
+
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/transition.js"></script>
+    <script src="assets/js/owl-carousel.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</body>
+
+
+  </body>
+
+</html>
+<script type="text/javascript">
+  window.onload = function() {
+    var name = sessionStorage.getItem("name");
+    var role = sessionStorage.getItem("role");
+    if (name==null) {
+      document.getElementById("login-link").innerHTML = "<a href='login.html'>Login</a></li>"  
+    }
+    else{
+      document.getElementById("login-link").innerHTML = "<a href='#' onclick='logout();'>Logout</a></li>";
+      document.getElementById("register-link").style.display = "none";
+
+      var url = "/message/" + name;
+      $.ajax({
+        type: "GET",
+        url: url,
+        success: function(result) {
+          console.log(result);
+          var count = 0;
+          for (var i = 0; i < result.length; i++) {
+            if (result[i]["status"]=="new") 
+              count += 1;
+          }
+          if (count > 0)
+            document.getElementById("message").innerHTML = "<a href='mymessages.html'>message(" + count + ")</a>";
+        }
+      }); 
+    }
+    if (role==null) {
+      document.getElementById("admin-list").style.display = "none";
+    }
+    else if (role!="admin") {
+      document.getElementById("admin-list").style.display = "none";
+    }
+
+
+    if (name==null) {
+       document.getElementById('table').innerHTML = "<p style='text-align:center;'><strong>Oops! You have not signed in!</strong></p>";
+    }
+    else{
+      var url = "/favorite/" + name;
+
+      $.ajax({
+        type: "GET",
+        url: url,
+        success: function(result) {
+          console.log(result);
+          for (var i = 0; i < result.length; i++) {
+
+            document.getElementById('result').innerHTML += "<tr><td>" + result[i]["listingType"] + "</td><td>" + result[i]["address"] + "</td><td>"
+                                                          + "<div class='filled-rectangle-button'><a href='#' onclick='removefavorite(\""
+                                                          +  result[i]["uuid"] + "\");' style='width: 100px;'>remove</a><a href='listing.html?id=" 
+                                                          + result[i]["uuid"] + "' style='width: 100px;margin-left:15px;'>detail</a></div></td></tr>";
+          }
+        },
+        error : function(e) {
+          document.getElementById('table').innerHTML = "<p style='text-align:center;'><strong>Oops! You don't have any favorite listing!</strong></p>";
+        }
+
+      });
+    }
+  }
+
+  function logout() {
+    sessionStorage.removeItem("name");
+    sessionStorage.removeItem("role");
+    location.reload();
+    return false;
+  }
+
+  function removefavorite(id) {
+    var name = sessionStorage.getItem("name");
+    var url = "/favorite/" + name + "/" + id;
+    $.ajax({
+        type: "DELETE",
+        url: url,
+        success: function(result) {
+          console.log(result);
+          location.reload();
+        },
+        error : function(e) {
+          document.getElementById('table').innerHTML = "<p style='text-align:center;'><strong>Oops! Something went wrong!</strong></p>";
+        }
+      });
+
+  }
+</script>
+
